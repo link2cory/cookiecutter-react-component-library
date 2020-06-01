@@ -1,0 +1,38 @@
+{
+  "name": "{{ cookiecutter.project_name }}",
+  "private": true,
+  "description": "{{ cookiecutter.project_description }}",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "start": "start-storybook"
+  },
+  "dependencies": {
+    "@storybook/react": "^5.3.19",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@storybook/preset-typescript": "^3.0.0",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb-typescript": "^7.2.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "fork-ts-checker-webpack-plugin": "^4.1.6",
+    "husky": "^4.2.3",
+    "prettier": "2.0.5",
+    "pretty-quick": "^2.0.1",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.project_slug }}"
+  },
+  "bugs": {
+    "url": "https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.project_slug }}/issues"
+  }
+}
