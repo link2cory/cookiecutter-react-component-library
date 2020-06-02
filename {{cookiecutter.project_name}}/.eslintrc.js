@@ -41,7 +41,7 @@ module.exports = {
     ],
     'react/prefer-stateless-function': [2, { ignorePureComponents: true }],
     'react/forbid-prop-types': [0, { forbid: [] }],
-    "react/jsx-props-no-spreading": 1,
+    'react/jsx-props-no-spreading': 1,
     'import/extensions': [1, 'never'],
     'import/no-extraneous-dependencies': [
       'error',
@@ -72,7 +72,7 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      parcel: {
+      node: {
         rootDir: 'src',
         extensions: ['.js', 'jsx', 'ts', 'txs'],
       },
