@@ -56,19 +56,6 @@ module.exports = {
     '@typescript-eslint/semi': ['error', 'never'],
     // there is no need for prop types, we are using typescript!
     'react/prop-types': [0],
-    '@typescript-eslint/member-delimiter-style': [
-      1,
-      {
-        multiline: {
-          delimiter: 'comma',
-          requireLast: true,
-        },
-        singleline: {
-          delimiter: 'comma',
-          requireLast: true,
-        },
-      },
-    ],
   },
   settings: {
     'import/resolver': {
