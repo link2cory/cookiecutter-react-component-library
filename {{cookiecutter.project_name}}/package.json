@@ -7,7 +7,8 @@
   "scripts": {
     "start": "start-storybook",
     "test": "jest --watchAll",
-    "lint": "eslint src/**/*.ts[x]"
+    "lint": "eslint src/**/*.ts[x]",
+    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "@storybook/react": "^5.3.19",
@@ -44,5 +45,9 @@
   },
   "bugs": {
     "url": "https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.project_slug }}/issues"
-  }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
 }
