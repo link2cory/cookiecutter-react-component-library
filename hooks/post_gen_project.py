@@ -12,20 +12,29 @@ def setup_git():
     os.rename('gitignore', '.gitignore')
 
     # initialize local repo
+    print('initializing local repository...')
     local = Repo.init(os.getcwd())
     local.git.add(A=True)
     local.index.commit('Initial Commit, project generated with cookiecutter-jam-app')
+    print('done initializing local repository')
 
 
     if context['use_github'] == 'yes':
+        print('setting up github repository...')
         remote = setup_remote(local)
         add_remote(local)
+        print('done setting up github repository')
         
         if context['continuous_integration'] != 'no':
+            print('setting up continuous integration...')
             setup_continuous_integration(local, remote)
+            print('done setting up continuous integration...')
 
         if context['use_gitflow'] == 'yes':
+            print('setting up gitflow...')
             setup_gitflow(remote)
+            print('done setting up gitflow...')
+
 
 
 def setup_remote(local):
@@ -85,7 +94,9 @@ def remove_extra_files():
 context = {{ cookiecutter }}
 
 # run cookiecutter for each sub-package
+print('rendering subpackages...')
 for name, package in context['packages'].items():
+    print(f'rendering package: {name}')
     # make sure that the dependencies for this package don't get installed yet
     package_context = package['context']
     package_context['is_subpackage'] = True
@@ -96,11 +107,18 @@ for name, package in context['packages'].items():
         extra_context=package_context,
         no_input=True
     )
+    print(f'finished rendering package: {name}')
+
+print('finished rendering subpackages')
 
 if context['is_subpackage'] == 'no':
-  if context['use_git'] == 'yes':
-      setup_git()
-
   if context['install_dependencies'] == 'yes':
+      print('installing dependencies...')
       subprocess.run(['yarn', 'install'])
+      print('finished installing dependencies')
+
+  if context['use_git'] == 'yes':
+      print('setting up git...')
+      setup_git()
+      print('finished setting up git...')
 
